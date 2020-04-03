@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 /**
  * @author mivek
  */
-public final class DefaultCommand implements Command {
+public final class DefaultCommand extends Command {
     /** The logger instance. */
     private static final Logger LOGGER = Logger.getLogger(DefaultCommand.class.getName());
 

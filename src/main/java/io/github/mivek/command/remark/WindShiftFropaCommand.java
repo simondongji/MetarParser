@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class WindShiftFropaCommand implements Command {
+public final class WindShiftFropaCommand extends Command {
     /** Wind shift fopa pattern. */
     private static final Pattern WIND_SHIFT_FROPA = Pattern.compile("^WSHFT (\\d{2})?(\\d{2}) FROPA");
 

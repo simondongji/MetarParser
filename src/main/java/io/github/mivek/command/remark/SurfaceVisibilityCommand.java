@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SurfaceVisibilityCommand implements Command {
+public final class SurfaceVisibilityCommand extends Command {
     /** Surface visibility. */
     private static final Pattern SURFACE_VISIBILITY = Pattern.compile("^SFC VIS ((\\d)*( )?(\\d?/?\\d))");
 

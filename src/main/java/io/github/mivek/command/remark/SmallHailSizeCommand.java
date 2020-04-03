@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SmallHailSizeCommand implements Command {
+public final class SmallHailSizeCommand extends Command {
     /** Hail size less than. */
     private static final Pattern HAIL_SIZE_LESS_THAN = Pattern.compile("^GR LESS THAN ((\\d )?(\\d/\\d)?)");
 

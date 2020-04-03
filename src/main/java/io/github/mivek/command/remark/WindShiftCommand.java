@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class WindShiftCommand implements Command {
+public final class WindShiftCommand extends Command {
 
     /** Wind shift pattern. */
     private static final Pattern WIND_SHIFT = Pattern.compile("^WSHFT (\\d{2})?(\\d{2})");

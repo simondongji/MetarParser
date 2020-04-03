@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class VirgaDirectionCommand implements Command {
+public final class VirgaDirectionCommand extends Command {
     /** Virga with direction. */
     private static final Pattern VIRGA_DIRECTION = Pattern.compile("^VIRGA ([A-Z]{2})");
 

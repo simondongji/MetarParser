@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class WindShearCommand implements BaseWindCommand {
+public final class WindShearCommand extends BaseWindCommand {
     /** Pattern regex for windshear. */
     private static final Pattern WIND_SHEAR_REGEX = Pattern.compile("WS(\\d{3})\\/(\\w{3})(\\d{2})G?(\\d{2})?(KT|MPS|KM\\/H)");
 
@@ -17,6 +17,11 @@ public final class WindShearCommand implements BaseWindCommand {
         WindShear windShear = parseWindShear(pPart);
         pContainer.setWindShear(windShear);
         return getReturnValue();
+    }
+
+    @Override
+    public boolean getReturnValue() {
+        return true;
     }
 
     /**

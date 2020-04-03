@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class PrevailingVisibilityCommand implements Command {
+public final class PrevailingVisibilityCommand extends Command {
     /** Variable prevailing visibility. */
     private static final Pattern VARIABLE_PREVAILING_VISIBILITY = Pattern.compile("^VIS ((\\d)*( )?(\\d?/?\\d))V((\\d)*( )?(\\d?/?\\d))");
     /** The message instance. */

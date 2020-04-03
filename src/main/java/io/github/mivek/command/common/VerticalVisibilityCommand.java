@@ -18,6 +18,11 @@ public final class VerticalVisibilityCommand implements Command {
         return getReturnValue();
     }
 
+    @Override
+    public boolean getReturnValue() {
+        return true;
+    }
+
     @Override public boolean canParse(final String pInput) {
         return Regex.find(VERTICAL_VISIBILITY, pInput);
     }

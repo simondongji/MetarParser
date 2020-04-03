@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class WindPeakCommand implements Command {
+public final class WindPeakCommand extends Command {
 
     /** Wind peak pattern. */
     private static final Pattern WIND_PEAK = Pattern.compile("^PK WND (\\d{3})(\\d{2,3})/(\\d{2})?(\\d{2})");

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class CeilingHeightCommand implements Command {
+public final class CeilingHeightCommand extends Command {
     /** Ceiling height. */
     private static final Pattern CEILING_HEIGHT = Pattern.compile("^CIG (\\d{3})V(\\d{3})");
 

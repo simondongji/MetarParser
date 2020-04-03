@@ -20,6 +20,11 @@ public final class CloudCommand implements Command {
         return pContainer.addCloud(c);
     }
 
+    @Override
+    public boolean getReturnValue() {
+        return true;
+    }
+
     /**
      * This method parses the cloud part of the metar.
      *

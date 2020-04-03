@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class ThunderStormLocationCommand implements Command {
+public final class ThunderStormLocationCommand extends Command {
 
     /** Thunderstorm location. */
     private static final Pattern THUNDERSTORM_LOCATION = Pattern.compile("^TS ([A-Z]{2})");

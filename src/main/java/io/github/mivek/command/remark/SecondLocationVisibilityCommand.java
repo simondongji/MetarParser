@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SecondLocationVisibilityCommand implements Command {
+public final class SecondLocationVisibilityCommand extends Command {
 
     /** Visibility at second location. */
     private static final Pattern SECOND_LOCATION_VISIBILITY = Pattern.compile("^VIS ((\\d)*( )?(\\d?/?\\d)) (\\w+)");

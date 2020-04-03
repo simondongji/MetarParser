@@ -7,7 +7,7 @@ import io.github.mivek.utils.Converter;
 /**
  * @author mivek
  */
-public interface BaseWindCommand extends Command {
+public abstract class BaseWindCommand implements Command {
 
     /**
      * Sets the elements of the wind.
@@ -18,7 +18,7 @@ public interface BaseWindCommand extends Command {
      * @param pGust      the speed of the gust if any
      * @param pUnit      the unit.
      */
-    default void setWindElements(final Wind pWind, final String pDirection, final String pSpeed, final String pGust, final String pUnit) {
+    void setWindElements(final Wind pWind, final String pDirection, final String pSpeed, final String pGust, final String pUnit) {
         String direction = Converter.degreesToDirection(pDirection);
         pWind.setDirection(direction);
         if (!direction.equals(Messages.getInstance().getString("Converter.VRB"))) {

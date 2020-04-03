@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class HailSizeCommand implements Command {
+public final class HailSizeCommand extends Command {
     /** Hail size. */
     private static final Pattern HAIL_SIZE = Pattern.compile("^GR ((\\d/\\d)|((\\d) ?(\\d/\\d)?))");
 

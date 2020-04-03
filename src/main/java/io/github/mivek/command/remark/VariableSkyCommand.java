@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class VariableSkyCommand implements Command {
+public final class VariableSkyCommand extends Command {
     /** Variable sky condition. */
     private static final Pattern VARIABLE_SKY = Pattern.compile("^([A-Z]{3}) V ([A-Z]{3})");
 

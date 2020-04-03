@@ -19,9 +19,7 @@ public interface Command {
     /**
      * @return the default return value of a command.
      */
-    default boolean getReturnValue() {
-        return true;
-    }
+    boolean getReturnValue();
 
     /**
      * @param pInput the input string to test.

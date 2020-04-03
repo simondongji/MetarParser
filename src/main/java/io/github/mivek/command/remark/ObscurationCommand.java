@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class ObscurationCommand implements Command {
+public final class ObscurationCommand extends Command {
     /** Obscuration pattern. */
     private static final Pattern OBSCURATION = Pattern.compile("^([A-Z]{2}) ([A-Z]{3})(\\d{3})");
 

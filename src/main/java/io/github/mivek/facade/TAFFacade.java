@@ -51,7 +51,12 @@ public final class TAFFacade extends AbstractWeatherCodeFacade<TAF> {
             StringBuilder sb = new StringBuilder();
             // Throw the first line since it is not part of the TAF event.
             br.readLine();
-            br.lines().forEach(currentLine -> sb.append(currentLine.replaceAll("\\s{2,}", "")).append("\n"));
+            // TODO 兼容JDK1.7
+            String currentLine;
+            while ((currentLine = br.readLine()) != null){
+                sb.append(currentLine.replaceAll("\\s{2,}", "")).append("\n");
+            }
+//            br.lines().forEach(currentLine -> sb.append(currentLine.replaceAll("\\s{2,}", "")).append("\n"));
             return getParser().parse(format(sb.toString()));
         }
     }
@@ -73,7 +78,17 @@ public final class TAFFacade extends AbstractWeatherCodeFacade<TAF> {
             lines = list.toArray(new String[0]);
         }
         // Case of TAF AMD, the 2 first lines must be merged.
-        return Arrays.stream(lines).reduce((x, y) -> x + y + "\n").orElseThrow(() -> new ParseException(ErrorCodes.ERROR_CODE_INVALID_MESSAGE));
+        // TODO 兼容JDK1.7
+        String result = "";
+        for (int i = 0; i < lines.length; i++) {
+            if (i != 0) {
+                result += lines[i] + "\n";
+            } else {
+                result += lines[i];
+            }
+        }
+        return result;
+//        return Arrays.stream(lines).reduce((x, y) -> x + y + "\n").orElseThrow(() -> new ParseException(ErrorCodes.ERROR_CODE_INVALID_MESSAGE));
     }
 
     /**

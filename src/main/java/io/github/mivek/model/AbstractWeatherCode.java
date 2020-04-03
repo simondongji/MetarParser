@@ -1,9 +1,9 @@
 package io.github.mivek.model;
 
 import io.github.mivek.internationalization.Messages;
+import io.github.mivek.utils.LocalTime;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.time.LocalTime;
 
 /**
  * @author mivek

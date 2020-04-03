@@ -1,9 +1,8 @@
 package io.github.mivek.model.trend.validity;
 
 import io.github.mivek.enums.TimeIndicator;
+import io.github.mivek.utils.LocalTime;
 import org.junit.Test;
-
-import java.time.LocalTime;
 
 import static org.junit.Assert.assertEquals;
 

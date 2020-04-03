@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class TornadicActivityBegCommand implements Command {
+public final class TornadicActivityBegCommand extends Command {
     /** Tornadic activity with beginning time. */
     private static final Pattern TORNADIC_ACTIVITY_BEGINNING = Pattern.compile("^(TORNADO|FUNNEL CLOUD|WATERSPOUT) (B(\\d{2})?(\\d{2}))( (\\d+)? ([A-Z]{1,2})?)?");
     /** The message instance. */

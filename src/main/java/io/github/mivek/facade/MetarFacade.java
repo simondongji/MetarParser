@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 import io.github.mivek.exception.ErrorCodes;
 import io.github.mivek.exception.ParseException;
@@ -46,7 +48,14 @@ public final class MetarFacade extends AbstractWeatherCodeFacade<Metar> {
         URL url = new URL(website);
         URLConnection urlCo = url.openConnection();
         try (BufferedReader br = new BufferedReader(new InputStreamReader(urlCo.getInputStream(), StandardCharsets.UTF_8))) {
-            String line = br.lines().toArray(String[]::new)[1];
+            List<String> lines = new ArrayList<>();
+            String line;
+            while ((line = br.readLine()) != null){
+                lines.add(line);
+            }
+            line = lines.get(1);
+            //TODO 兼容JDK1.7
+//            String line = br.lines().toArray(String[]::new)[1];
             return getParser().parse(line);
         }
     }

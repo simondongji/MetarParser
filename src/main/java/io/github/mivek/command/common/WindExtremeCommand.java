@@ -18,6 +18,11 @@ public final class WindExtremeCommand implements Command {
         return getReturnValue();
     }
 
+    @Override
+    public boolean getReturnValue() {
+        return true;
+    }
+
     /**
      * Parses the wind.
      *

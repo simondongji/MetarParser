@@ -1,9 +1,8 @@
 package io.github.mivek.model.trend.validity;
 
 import io.github.mivek.enums.TimeIndicator;
+import io.github.mivek.utils.LocalTime;
 import org.apache.commons.lang3.Validate;
-
-import java.time.LocalTime;
 
 /**
  * Abstract class for the time trend in a metar.

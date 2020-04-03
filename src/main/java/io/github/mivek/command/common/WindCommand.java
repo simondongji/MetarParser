@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class WindCommand implements BaseWindCommand {
+public final class WindCommand extends BaseWindCommand {
     /** Pattern regex for wind. */
     private static final Pattern WIND_REGEX = Pattern.compile("(\\w{3})(\\d{2})G?(\\d{2})?(KT|MPS|KM\\/H)");
     /**
@@ -30,6 +30,11 @@ public final class WindCommand implements BaseWindCommand {
         Wind wind = parseWind(pPart);
         pContainer.setWind(wind);
         return getReturnValue();
+    }
+
+    @Override
+    public boolean getReturnValue() {
+        return true;
     }
 
     @Override public boolean canParse(final String pInput) {

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SnowIncreaseCommand implements Command {
+public final class SnowIncreaseCommand extends Command {
     /** Snow increasing rapidly. */
     private static final Pattern SNOW_INCR_RAPIDLY = Pattern.compile("^SNINCR (\\d+)/(\\d+)");
 

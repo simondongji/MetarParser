@@ -17,11 +17,10 @@ import io.github.mivek.model.trend.validity.Validity;
 import io.github.mivek.utils.Converter;
 import io.github.mivek.utils.Regex;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author mivek
@@ -134,14 +133,40 @@ public final class TAFParser extends AbstractParser<TAF> {
         String[] lines = cleanedInput
                 .replaceAll("\\s(PROB\\d{2}\\sTEMPO|TEMPO|BECMG|FM|PROB)", "\n$1")
                 .split("\n");
-        String[][] lineTokens = Arrays.stream(lines).map(this::tokenize).toArray(String[][]::new);
+//        String[][] lineTokens = Arrays.stream(lines).map(this::tokenize).toArray(String[][]::new);
+        // TODO 兼容JDK 1.7
+        String[][] lineTokens = new String[lines.length][];
+        for(int i = 0; i < lines.length; i++){
+            String[] tokens = lines[i].split(" ");
+            lineTokens[i] = tokens;
+        }
         if (lineTokens.length > 1) {
             // often temperatures are set in the end of the TAF report
             String[] last = lineTokens[lines.length - 1];
-            List<String> temperatures = Arrays.stream(last).filter(code -> code.startsWith(TX) || code.startsWith(TN)).collect(Collectors.toList());
+            // TODO 兼容JDK 1.7
+//            List<String> temperatures = Arrays.stream(last).filter(code -> code.startsWith(TX) || code.startsWith(TN)).collect(Collectors.toList());
+            List<String> temperatures = new ArrayList<>();
+            for(String code : last){
+                if(code.startsWith(TX) || code.startsWith(TN)){
+                    temperatures.add(code);
+                }
+            }
             if (!temperatures.isEmpty()) {
-                lineTokens[0] = Stream.concat(Arrays.stream(lineTokens[0]), temperatures.stream()).toArray(String[]::new);
-                lineTokens[lines.length - 1] = Arrays.stream(last).filter(code -> !code.startsWith(TX) && !code.startsWith(TN)).toArray(String[]::new);
+                // TODO 兼容JDK 1.7
+                List<String> lineToken = new ArrayList<>();
+                lineToken.addAll(Arrays.asList(lineTokens[0]));
+                lineToken.addAll(temperatures);
+                lineTokens[0] = lineToken.toArray(new String[0]);
+//                lineTokens[0] = Stream.concat(Arrays.stream(lineTokens[0]), temperatures.stream()).toArray(String[]::new);
+                // TODO 兼容JDK 1.7
+                lineToken = new ArrayList<>();
+                for(String code : lineTokens[lines.length - 1]){
+                    if(!code.startsWith(TX) && !code.startsWith(TN)){
+                        lineToken.add(code);
+                    }
+                }
+                lineTokens[lines.length - 1] = lineToken.toArray(new String[0]);
+//                lineTokens[lines.length - 1] = Arrays.stream(last).filter(code -> !code.startsWith(TX) && !code.startsWith(TN)).toArray(String[]::new);
             }
         }
         return lineTokens;

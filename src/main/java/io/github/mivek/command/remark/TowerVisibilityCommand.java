@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class TowerVisibilityCommand implements Command {
+public final class TowerVisibilityCommand extends Command {
     /** Tower visibility. */
     private static final Pattern TOWER_VISIBILITY = Pattern.compile("^TWR VIS ((\\d)*( )?(\\d?/?\\d))");
 

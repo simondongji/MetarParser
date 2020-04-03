@@ -23,6 +23,11 @@ public final class MainVisibilityNauticalMilesCommand implements Command {
         return getReturnValue();
     }
 
+    @Override
+    public boolean getReturnValue() {
+        return true;
+    }
+
     @Override public boolean canParse(final String pInput) {
         return Regex.find(MAIN_VISIBILITY_SM_REGEX, pInput);
     }

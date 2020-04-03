@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SnowPelletsCommand implements Command {
+public final class SnowPelletsCommand extends Command {
     /** Snow pellets intensity. */
     private static final Pattern SNOW_PELLETS_INTENSITY = Pattern.compile("^GS (LGT|MOD|HVY)");
 

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class CeilingSecondLocationCommand implements Command {
+public final class CeilingSecondLocationCommand extends Command {
     /** Ceiling height second location. */
     private static final Pattern CEILING_SECOND_LOCATION = Pattern.compile("^CIG (\\d{3}) (\\w+)");
 

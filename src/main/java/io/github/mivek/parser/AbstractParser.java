@@ -11,9 +11,10 @@ import io.github.mivek.model.AbstractWeatherCode;
 import io.github.mivek.model.AbstractWeatherContainer;
 import io.github.mivek.model.Visibility;
 import io.github.mivek.model.WeatherCondition;
+import io.github.mivek.utils.LocalTime;
 import io.github.mivek.utils.Regex;
+import org.apache.commons.lang3.StringUtils;
 
-import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -148,7 +149,8 @@ public abstract class AbstractParser<T extends AbstractWeatherCode> {
      */
     void parseRMK(final AbstractWeatherContainer pContainer, final String[] pParts, final int index) {
         String[] subArray = Arrays.copyOfRange(pParts, index + 1, pParts.length);
-        pContainer.setRemark(remarkParser.parse(String.join(" ", subArray)));
+        //TODO 兼容JDK 1.7
+        pContainer.setRemark(remarkParser.parse(StringUtils.join(subArray," ")));
     }
 
     /**

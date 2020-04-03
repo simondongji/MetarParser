@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class PrecipitationBegEndCommand implements Command {
+public final class PrecipitationBegEndCommand extends Command {
     /** Beginning and ending of precipitation. */
     private static final Pattern PRECIPITATION_BEG_END = Pattern.compile("^(([A-Z]{2})?([A-Z]{2})B(\\d{2})?(\\d{2})E(\\d{2})?(\\d{2}))");
 

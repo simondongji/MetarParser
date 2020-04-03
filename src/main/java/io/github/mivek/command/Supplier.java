@@ -4,7 +4,7 @@ package io.github.mivek.command;
  * @param <T> type of command to return.
  * @author mivek
  */
-@FunctionalInterface public interface Supplier<T> {
+public interface Supplier<T> {
 
     /**
      * @param pString the string to parse.

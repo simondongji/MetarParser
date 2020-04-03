@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SeaLevelPressureCommand implements Command {
+public final class SeaLevelPressureCommand extends Command {
     /** Sea level pressure. */
     private static final Pattern SEAL_LEVEL_PRESSURE = Pattern.compile("^SLP(\\d{2})(\\d)");
 

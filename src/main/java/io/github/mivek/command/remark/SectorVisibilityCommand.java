@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 /**
  * @author mivek
  */
-public final class SectorVisibilityCommand implements Command {
+public final class SectorVisibilityCommand extends Command {
     /** Sector visibility. */
     private static final Pattern SECTOR_VISIBILITY = Pattern.compile("^VIS ([A-Z]{1,2}) ((\\d)*( )?(\\d?/?\\d))");
 
